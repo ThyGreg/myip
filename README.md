@@ -1,6 +1,7 @@
 # myip
 Get IP address with options
 
+# usage
 usage: myip.py [-h] [-i] [-c] [-s] [--raw]
 
 get public IP information
