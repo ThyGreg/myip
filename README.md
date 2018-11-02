@@ -12,3 +12,11 @@ optional arguments:
   -c, --country       print only country
   -s, --country-code  print only country code
   --raw               print raw output
+
+# compile for your system
+Install python3
+Install python3-pip
+Run 'pip install pyinstaller'
+Go into the script directory
+Run 'pyinstaller -F myip.py'
+The executable for your os will be saved in the 'dist' folder ;)
