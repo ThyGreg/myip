@@ -21,5 +21,5 @@ optional arguments:
 5. Run 'pyinstaller -F myip.py'
 6. The executable for your OS will be saved in the 'dist' folder ;)
 
-# credits
+# credit
 JSON API: https://www.myip.com/api-docs/
