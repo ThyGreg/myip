@@ -14,9 +14,9 @@ optional arguments:
   --raw               print raw output
 
 # compile for your system
-Install python3
-Install python3-pip
-Run 'pip install pyinstaller'
-Go into the script directory
-Run 'pyinstaller -F myip.py'
-The executable for your os will be saved in the 'dist' folder ;)
+1. Install python3
+2. Install python3-pip
+3. Run 'pip install pyinstaller'
+4. Go into the script directory
+5. Run 'pyinstaller -F myip.py'
+6. The executable for your os will be saved in the 'dist' folder ;)
