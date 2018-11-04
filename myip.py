@@ -1,5 +1,6 @@
 import argparse
 import json
+import sys
 from requests import get
 
 parser = argparse.ArgumentParser(description='get public IP information')
@@ -15,13 +16,13 @@ data = json.loads(data)
 
 if args.raw:
     if not args.country and not args.country_code: print(data['ip'])
-    if args.ip: exit(0)
+    if args.ip: sys.exit(0)
     if not args.country_code: print(data['country'])
-    if args.country: exit(0)
+    if args.country: sys.exit(0)
     print(data['cc'])
 else:
     if not args.country and not args.country_code: print('IP:', data['ip'])
-    if args.ip: exit(0)
+    if args.ip: sys.exit(0)
     if not args.country_code: print('Country:', data['country'])
-    if args.country: exit(0)
+    if args.country: sys.exit(0)
     print('CC:', data['cc'])
