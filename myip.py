@@ -8,7 +8,7 @@ parser = argparse.ArgumentParser(description='get public IP information')
 parser.add_argument('-i', '--ip', action='store_true', help='print only IP')
 parser.add_argument('-c', '--country', action='store_true', help='print only country')
 parser.add_argument('-s', '--country-code', action='store_true', help='print only country code')
-parser.add_argument('--raw',action='store_true', help='print raw output')
+parser.add_argument('-r', '--raw',action='store_true', help='print raw output')
 
 args = parser.parse_args()
 
