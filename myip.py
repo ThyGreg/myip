@@ -4,26 +4,67 @@ import json
 import sys
 from requests import get
 
-parser = argparse.ArgumentParser(description='get public IP information')
-parser.add_argument('-i', '--ip', action='store_true', help='print only IP')
-parser.add_argument('-c', '--country', action='store_true', help='print only country')
-parser.add_argument('-s', '--country-code', action='store_true', help='print only country code')
-parser.add_argument('-r', '--raw',action='store_true', help='print raw output')
+# get ip from API
+def getip():
+    data = get("https://api.myip.com").text
+    data = json.loads(data)
+    return data
 
-args = parser.parse_args()
+# commandlien argument parser
+def parse_args():
+    parser = argparse.ArgumentParser(description="get public IP information")
+    parser.add_argument("-i",
+                        "--ip",
+                        action="store_true",
+                        help="print only IP")
+    
+    parser.add_argument("-c",
+                        "--country",
+                        action="store_true",
+                        help="print only country")
+    
+    parser.add_argument("-C",
+                        "--country-code",
+                        action="store_true",
+                        help="print only country code")
+    
+    parser.add_argument("-r",
+                        "--raw",
+                        action="store_false",
+                        help="print raw output")
+    return parser.parse_args()
 
-data = get('https://api.myip.com').text
-data = json.loads(data)
 
-if args.raw:
-    if not args.country and not args.country_code: print(data['ip'])
-    if args.ip: sys.exit(0)
-    if not args.country_code: print(data['country'])
-    if args.country: sys.exit(0)
-    print(data['cc'])
+args = parse_args()
+output = getip()
+
+# if nothing is specified, print all
+if not args.ip and not args.country and not args.country_code:
+    if args.raw:
+        print("IP: ", end="")
+
+    print(output["ip"])
+
+    if args.raw:
+        print("Country: ", end="")
+
+    print(output["country"])
+
+    if args.raw:
+        print("CC: ", end="")
+
+    print(output["cc"])
 else:
-    if not args.country and not args.country_code: print('IP:', data['ip'])
-    if args.ip: sys.exit(0)
-    if not args.country_code: print('Country:', data['country'])
-    if args.country: sys.exit(0)
-    print('CC:', data['cc'])
+    # print output
+    if args.ip:
+        if args.raw:
+            print("IP: ", end="")
+        print(output["ip"])
+    if args.country:
+        if args.raw:
+            print("Country: ", end="")
+        print(output["country"])
+    if args.country_code:
+        if args.raw:
+            print("CC: ", end="")
+        print(output["cc"])
