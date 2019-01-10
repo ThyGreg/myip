@@ -1,5 +1,5 @@
 # myip
-Get IP address with options
+Get public IP address with options
 
 # usage
 usage: myip.py [-h] [-i] [-c] [-s] [--raw]
@@ -22,4 +22,4 @@ optional arguments:
 6. The executable for your OS will be saved in the 'dist' folder ;)
 
 # credit
-JSON API: https://www.myip.com/api-docs/
+API: https://www.myip.com/api-docs/

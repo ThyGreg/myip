@@ -6,7 +6,7 @@ import sys
 from requests import get
 
 
-# get IP from API
+# get data from api
 def getip():
     data = get("https://api.myip.com").text
     data = json.loads(data)
@@ -15,10 +15,9 @@ def getip():
 
 # commandline argument parser
 parser = argparse.ArgumentParser(description="get public IP information")
-parser.add_argument("-i", "--ip", action="store_true",
-                    help="print only IP")
-parser.add_argument("-c", "--country",
-                    action="store_true", help="print only country")
+parser.add_argument("-i", "--ip", action="store_true", help="print only IP")
+parser.add_argument("-c", "--country", action="store_true",
+                    help="print only country")
 parser.add_argument("-C", "--country-code",
                     action="store_true", help="print only country code")
 parser.add_argument("-r", "--raw", action="store_false",
@@ -26,13 +25,12 @@ parser.add_argument("-r", "--raw", action="store_false",
 args = parser.parse_args()
 output = getip()
 
-# some variables
 ip = args.ip
 country = args.country
 cc = args.country_code
 raw = args.raw
 
-# if nothing is specified, print all
+# print all if no options are given
 if not ip and not country and not cc:
     ip, country, cc = True, True, True
 
