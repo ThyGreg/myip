@@ -13,7 +13,7 @@ optional arguments:
   -s, --country-code  print only country code
   --raw               print raw output
 
-# compile for your system
+# compile for your system (Extra)
 1. Install python3
 2. Install python3-pip
 3. Run 'pip3 install pyinstaller' (if 'pip3' was not found, try 'pip' instead)
